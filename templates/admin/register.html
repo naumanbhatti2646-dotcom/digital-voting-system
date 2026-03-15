@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Digital Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+   <main class="main-content">
+    <div class="container">
+        <h2>Register</h2>
+       
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required autofocus>
+            <input type="email" name="email" placeholder="Email" required>
+            <select name="department" id="departmentop">
+              <option value="">Select Department</option>
+              <option value="BSCS">BSCS</option>
+              <option value="BSIT">BSIT</option>
+            </select>
+            <input type="password" name="password" placeholder="Password" minlength="8" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" minlength="8" required>
+
+             {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+            <button type="submit">Register</button>
+        </form>
+        <p><a style="color: greenyellow;" href="{{ url_for('login') }}">Login here</a></p>
+        <p><a style="color: greenyellow;" href="{{ url_for('voter_registered')}}">Click here to see Registered accounts</a></p>
+        
+    </div>
+
+    </main>
+</body>
+</html>

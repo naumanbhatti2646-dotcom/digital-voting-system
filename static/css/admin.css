@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e, #16213e);
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+.header {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    border-radius: 0 0 15px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0,198,255,0.7);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.logout-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+    padding: 20px;
+    
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px 25px;
+    border-radius: 18px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+    width: 80%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,198,255,0.5);
+}
+
+
+h1, h2, h3, h4 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.primary-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    transform: scale(1.05);
+}
+
+.secondary-btn {
+    background-color: #6b7280;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.secondary-btn:hover {
+    background-color: #4b5563;
+}
+
+
+
+
+table thead {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    color: #fff;
+}
+
+table th, table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+table th {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr {
+    background-color: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.08);
+}
+
+table tbody tr:hover {
+    background-color: rgba(0,198,255,0.1);
+    transform: translateX(2px);
+}
+
+table td {
+    vertical-align: middle;
+    color: #e5e7eb;
+}
+
+table td img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+table td a button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+table td a button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0,198,255,0.5);
+}
+
+td a button[style*="background:#ffc107"] {
+    background-color: #fbbf24;
+    color: #111;
+}
+
+td a button[style*="background:#dc3545"] {
+    background-color: #ef4444;
+}
+
+td a button[style*="background:#10b981"] {
+    background-color: #10b981;
+}
+
+
+input[type="text"],
+input[type="datetime-local"],
+textarea, select,
+input[type="file"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+input[type="file"]:focus {
+    border-color: #00c6ff;
+    box-shadow: 0 0 8px rgba(0,198,255,0.5);
+    outline: none;
+}
+
+select option {
+    background-color: #1a1a2e;
+    color: white;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.footer {
+    background-color: #111827;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+}
+
+p.result-time {
+    background-color: rgba(16,185,129,0.1);
+    border-left: 5px solid #10b981;
+    padding: 12px 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    color: #10b981;
+    font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .header .logo {
+        font-size: 1.6rem;
+    }
+
+    table {
+        display: table;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table thead {
+        display: table-header-group;
+    }
+
+    table tbody tr {
+        display: table-row;
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        background-color: inherit;
+    }
+
+    table tbody td {
+        display: table-cell;
+        text-align: left;
+        padding: 8px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    table tbody td img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0f1a, #1a1a2e, #16213e);
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+.header {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    color: #fff;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    border-radius: 0 0 15px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0,198,255,0.7);
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.logout-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+}
+
+
+
+
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    font-size: 0.95rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+table thead {
+    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    color: #fff;
+}
+
+table th, table td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+table th {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+table tbody tr {
+    background-color: rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.08);
+}
+
+table tbody tr:hover {
+    background-color: rgba(0,198,255,0.1);
+    transform: translateX(2px);
+}
+
+table td img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+table td a button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+table td a button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(0,198,255,0.5);
+}
+
+td a button[style*="background:#ffc107"] { background-color: #fbbf24; color: #111; }
+td a button[style*="background:#dc3545"] { background-color: #ef4444; }
+td a button[style*="background:#10b981"] { background-color: #10b981; }
+
+
+.footer {
+    background-color: #111827;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
+}
+
+
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table thead {
+        display: table-header-group;
+    }
+
+    table tbody tr {
+        display: table-row;
+    }
+
+    table td {
+        padding: 8px 12px;
+    }
+
+    table td img {
+        width: 50px;
+        height: 50px;
+    }
+}

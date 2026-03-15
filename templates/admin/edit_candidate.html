@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Candidate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <h2 class="logo">Edit Candidate</h2>
+    <a href="{{ url_for('admin_dashboard') }}" class="logout-btn">Back</a>
+</header>
+
+<main class="main-content">
+<div class="container">
+
+<form method="POST" enctype="multipart/form-data">
+    <label>Candidate Name:</label><br>
+    <input type="text" name="name" value="{{ candidate.name }}" required><br><br>
+
+    <label>Description:</label><br>
+    <textarea rows="6" name="description" required>{{ candidate.description }}</textarea><br><br>
+
+    <label>Current Image:</label><br>
+    <img src="{{ url_for('static', filename='uploads/' ~ candidate.image) }}" height="100" width="auto" style="border-radius:50%;"><br><br>
+
+    <label>Change Image :</label><br>
+    <input type="file" name="image" accept="image/*"><br><br>
+
+    <button type="submit" class="primary-btn">Update</button>
+</form>
+
+</div>
+</main>
+
+</body>
+</html>

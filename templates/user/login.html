@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Digital Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+<body>
+  <main class="main-content">
+    <div class="container">
+        <h2>Voter Login</h2>
+        
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username"  required autofocus>
+            <input type="password" name="password" placeholder="Password" required>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash">
+              {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? Contact to the Staff.</p>
+    </div>
+    </main>
+</body>
+</html>

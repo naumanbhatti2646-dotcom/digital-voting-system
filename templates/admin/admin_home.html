@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home - Digital Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+
+  
+    <header class="header">
+        <h2 class="logo">Digital Voting System</h2>
+        <a href="/admin-logout" class="logout-btn">Logout</a>
+    </header>
+
+    
+    <main class="main-content">
+        <div class="container">
+            <h1>Welcome {{ username }}</h1>
+            <p>Manage your votes and candidates securely.</p>
+            <br>
+            <a  href="/admin-dashboard">
+                <button class="primary-btn">Get Started</button>
+            </a>
+            
+            <a  href="/register">
+                <button class="primary-btn">Register New Voter</button>
+            </a>
+        </div>
+    </main>
+
+   
+    <footer class="footer">
+        <p>&copy; 2026 Digital Voting System | Staff Panel | Designed by <span style="color: #6366f1;">Nauman Obaid</span> & <span style="color: #6366f1;">Usam Sajjad</span></p>
+    </footer>
+
+</body>
+</html>

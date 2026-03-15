@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Digital Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <h2 class="logo">Digital Voting System - BSIT Department</h2>
+    <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+</header>
+
+<main class="main-content">
+<div class="container">
+
+    {% if voted_candidate %}
+    <h3 class="section-title">You Voted For</h3>
+    <div class="card">
+        <img src="{{ url_for('static', filename='uploads/' ~ voted_candidate.image) }}" alt="Candidate Image" class="card-img">
+        <h4>{{ voted_candidate.name }}</h4>
+    </div>
+    <hr>
+    {% endif %}
+
+    {% if show_result %}
+        <h2 class="section-title success">Final Result</h2>
+        {% if winners %}
+            {% if winners|length == 1 %}
+              
+                <div class="card winner-card">
+                    <h2 class="section-title success">Winner</h2>
+                    <img src="{{ url_for('static', filename='uploads/' ~ winners[0].image) }}" alt="Winner Image" class="card-img">
+                    <h4>{{ winners[0].name }}</h4>
+                    <span class="badge votes-badge">{{ winners[0].votes }} Votes</span>
+                </div>
+            {% else %}
+               
+                <h3 class="section-title warning">It's a Tie!</h3>
+                <div class="tie-container">
+                    {% for winner in winners %}
+                    <div class="card winner-card">
+                        <img src="{{ url_for('static', filename='uploads/' ~ winner.image) }}" alt="Winner Image" class="card-img">
+                        <h4>{{ winner.name }}</h4>
+                        <span class="badge votes-badge">{{ winner.votes }} Votes</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {% if candidates %}
+            <h3 class="section-title">All Candidates</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidate in candidates %}
+                    <tr>
+                        <td><img src="{{ url_for('static', filename='uploads/' ~ candidate.image) }}" class="table-img"></td>
+                        <td>{{ candidate.name }}</td>
+                        <td>{{ candidate.description }}</td>
+                        <td><span class="badge votes-badge">{{ candidate.votes }}</span></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+    {% else %}
+        {% if not voted_candidate %}
+            {% if candidates %}
+            <h3 class="section-title">Cast Your Vote</h3>
+            <form method="POST" action="{{ url_for('vote') }}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>LOGO</th>
+                            <th>Society</th>
+                            <th>Description</th>
+                            <th>Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidate in candidates %}
+                        <tr>
+                            <td><input type="radio" name="candidate_id" value="{{ candidate.id }}" required></td>
+                            <td><img src="{{ url_for('static', filename='uploads/' ~ candidate.image) }}" class="table-img"></td>
+                            <td>{{ candidate.name }}</td>
+                            <td>{{ candidate.description }}</td>
+                            <td><span class="badge votes-badge">{{ candidate.votes }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button type="submit" class="primary-btn" style="margin-top: 30px; ;">Vote</button>
+            </form>
+            {% else %}
+            <h3 class="section-title">No Candidate Registered</h3>
+            {% endif %}
+        {% else %}
+            <h3 class="section-title warning">Results not announced yet</h3>
+        {% endif %}
+    {% endif %}
+
+</div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Digital Voting System | Voter Panel | Designed by <span style="color: #6366f1;">Nauman Obaid</span> & <span style="color: #6366f1;">Usam Sajjad</span></p>
+</footer>
+
+</body>
+</html>
